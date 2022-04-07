@@ -94,7 +94,10 @@
     <main class="main">
       <div class="wrapper">
         <section class="user-projects">
-          <button class="user-project__btn user-projects__left-btn">
+          <button
+            class="user-projects__btn user-projects__left-btn"
+            id="projectsLeftBtn"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24px"
@@ -111,27 +114,12 @@
             </svg>
           </button>
           <div class="user-projects__slide">
-            <article class="user-project">
-              <div class="user-project__img-wrapper">
-                <div class="user-project__img-rotate">
-                  <img
-                    class="user-project__img"
-                    src="./assets/posts/React Pizza.png"
-                  />
-                </div>
-              </div>
-              <div class="user-project__content">
-                <h4 class="user-project__name">React Pizza</h4>
-                <a
-                  class="user-project__href"
-                  href="https://github.com/jr-mota/react-pizza"
-                >
-                  Open
-                </a>
-              </div>
-            </article>
+            <div class="user-projects__slide-inner" id="projects"></div>
           </div>
-          <button class="user-project__btn user-projects__right-btn">
+          <button
+            class="user-projects__btn user-projects__right-btn"
+            id="projectsRightBtn"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24px"
@@ -150,5 +138,7 @@
         </section>
       </div>
     </main>
+
+    <script defer type="module" src="./js/index.js"></script>
   </body>
 </html>
