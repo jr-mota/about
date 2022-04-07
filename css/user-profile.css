@@ -1,16 +1,25 @@
-.user-profile {
+.user-profile__logo-wrapper {
+  width: 140px;
+  height: 140px;
+
+  border: 2px solid var(--color-6);
+
+  box-shadow: 0px 0px 12px var(--color-5);
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 100%;
 }
 
 .user-profile__logo {
   width: 120px;
   height: 120px;
 
-  margin: 0 auto;
-
   border-radius: 100%;
-  border: 2px solid var(--color-6);
-
-  box-shadow: 0px 0px 12px var(--color-5);
 
   background-color: var(--color-2);
 
