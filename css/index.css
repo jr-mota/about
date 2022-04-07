@@ -1,5 +1,6 @@
 @import url("./user-profile.css");
 @import url("./user-projects.css");
+@import url("./user-project.css");
 
 :root {
   --color-1: #303952;
@@ -33,7 +34,7 @@ html {
 }
 
 .wrapper {
-  max-width: 550px;
+  max-width: 600px;
 
   margin: 0 auto;
 }
