@@ -1,0 +1,45 @@
+@import url("./user-profile.css");
+
+:root {
+  --color-1: #303952;
+  --color-2: #596275;
+  --color-3: #574b90;
+  --color-4: #574b90;
+  --color-5: #e15f41;
+  --color-6: #e77f67;
+  --color-7: #f19066;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-Regular.ttf") format("ttf"),
+    url("../assets/fonts/Gilroy-Regular.woff") format("woff")
+      url("../assets/fonts/Gilroy-Regular.woff2") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: "Gilroy", sans-serif, Arial;
+}
+
+body,
+html {
+  background-color: #303952;
+}
+
+.wrapper {
+  max-width: 550px;
+
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+
+  padding: 40px;
+}
