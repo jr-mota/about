@@ -1,24 +1,41 @@
+const PROJECT_ELEM_WIDTH = 514; // PX
+const TRANSFORM_TRANSITION_TIME = 400; // MS
+
 export default function handleProjectsBtns(
   side,
   projectsWrapper,
   projectsData,
-  projectsElems
+  projectsElems,
+  getProjectTemplate
 ) {
-  const PROJECT_ELEM_WIDTH = 514;
-
   if (side === "right") {
-    if (
-      (projectsData.position.x + PROJECT_ELEM_WIDTH) / PROJECT_ELEM_WIDTH >=
-      projectsData.list.length
-    ) {
-      projectsWrapper.appendChild(projectsElems[0]);
-
-      projectsData.position.x += PROJECT_ELEM_WIDTH;
+    if (projectsData.currentSlide + 1 > projectsData.list.length - 1) {
     } else {
-      projectsData.position.x += PROJECT_ELEM_WIDTH;
-    }
+      const nextSlideProject = projectsData.list[projectsData.currentSlide + 1];
 
-    projectsWrapper.style.transform = `translateX(-${projectsData.position.x}px)`;
+      projectsWrapper.innerHTML =
+        projectsWrapper.innerHTML +
+        getProjectTemplate(
+          nextSlideProject.src,
+          nextSlideProject.name,
+          nextSlideProject.projectHref
+        );
+
+      projectsElems = Array.from(
+        document.getElementsByClassName("user-project")
+      );
+
+      // setTimeout help
+      setTimeout(() => {
+        for (let i = 0; i < projectsElems.length; ++i) {
+          const project = projectsElems[i];
+
+          project.style.transform = `translateX(-514px)`;
+        }
+      });
+
+      projectsData.currentSlide += 1;
+    }
   } else if (side === "left") {
     projectsData.position.x -= PROJECT_ELEM_WIDTH;
 

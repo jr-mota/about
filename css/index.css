@@ -9,7 +9,8 @@
   --color-4: #574b90;
   --color-5: #e15f41;
   --color-6: #e77f67;
-  --color-7: #f19066;
+  --color-7: #ff8500;
+  --color-8: #e8e8e8;
 }
 
 @font-face {
@@ -26,10 +27,14 @@
   box-sizing: border-box;
 
   font-family: "Gilroy", sans-serif, Arial;
+
+  color: var(--color-8);
 }
 
 body,
 html {
+  height: 100%;
+
   background-color: #303952;
 }
 

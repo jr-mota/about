@@ -1,8 +1,6 @@
 export default {
-  position: {
-    x: 0,
-    y: 0,
-  },
+  positions: [{ x: 0 }, { x: 0 }, { x: 0 }],
+  currentSlide: 0,
   list: [
     {
       name: "React Pizza",

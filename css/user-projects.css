@@ -25,7 +25,7 @@
 .user-projects__btn svg path {
   opacity: 0.6;
 
-  fill: white;
+  fill: var(--color-8);
 }
 
 .user-projects__slide {
@@ -44,8 +44,6 @@
 
   display: flex;
   align-items: center;
-
-  transition: transform ease-in 0.4s;
 
   display: flex;
 }

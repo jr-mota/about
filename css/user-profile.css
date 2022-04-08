@@ -13,6 +13,14 @@
   align-items: center;
 
   border-radius: 100%;
+
+  transition: transform linear 0.3s;
+
+  cursor: pointer;
+}
+
+.user-profile__logo-wrapper:hover {
+  transform: scale(1.04);
 }
 
 .user-profile__logo {
@@ -33,8 +41,6 @@
 
   font-size: 28px;
 
-  color: white;
-
   text-transform: uppercase;
   letter-spacing: 10px;
 }
@@ -43,8 +49,6 @@
   text-align: center;
 
   font-size: 14px;
-
-  color: white;
 
   opacity: 0.3;
 
@@ -87,7 +91,7 @@
 }
 
 .user-profile__contact-item svg {
-  fill: white;
+  fill: var(--color-8);
 
   transition: fill linear 0.3s;
 }
@@ -113,8 +117,6 @@
 
   margin-left: 10px;
   margin-right: 10px;
-
-  color: white;
 }
 
 .user-profile__stat-item:hover .user-profile__stat-item-count {
