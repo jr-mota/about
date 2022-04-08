@@ -25,11 +25,21 @@
 
   background-color: white;
 
+  border: 3px solid var(--color-7);
+
+  transition: border linear 0.3s, transform linear 0.3s;
+
   transform: rotate(45deg) translateX(-200px) translateY(-60px);
 
   position: relative;
 
   overflow: hidden;
+}
+
+.user-project__img-rotate:hover {
+  border: 3px solid var(--color-5);
+
+  transform: rotate(45deg) translateX(-200px) translateY(-60px) scale(1.02);
 }
 
 .user-project__img {
