@@ -1,8 +1,28 @@
-export default function handleProjectsBtns(side, projects) {
+export default function handleProjectsBtns(
+  side,
+  projectsWrapper,
+  projectsData,
+  projectsElems
+) {
+  const PROJECT_ELEM_WIDTH = 514;
+
   if (side === "right") {
-    projects.style.transform = "translateX(-514px)";
+    if (
+      (projectsData.position.x + PROJECT_ELEM_WIDTH) / PROJECT_ELEM_WIDTH >=
+      projectsData.list.length
+    ) {
+      projectsWrapper.appendChild(projectsElems[0]);
+
+      projectsData.position.x += PROJECT_ELEM_WIDTH;
+    } else {
+      projectsData.position.x += PROJECT_ELEM_WIDTH;
+    }
+
+    projectsWrapper.style.transform = `translateX(-${projectsData.position.x}px)`;
   } else if (side === "left") {
-    projects.style.transform = "translateX(0px)";
+    projectsData.position.x -= PROJECT_ELEM_WIDTH;
+
+    projectsWrapper.style.transform = `translateX(-${projectsData.position.x}px)`;
   } else {
     return;
   }
