@@ -1,46 +1,41 @@
 const PROJECT_ELEM_WIDTH = 514; // PX
-const TRANSFORM_TRANSITION_TIME = 400; // MS
+const lastClickTime = Date.now();
+let projectsTransitionClass = "user-projects__slide-inner_transition";
 
 export default function handleProjectsBtns(
   side,
   projectsWrapper,
   projectsData,
-  projectsElems,
   getProjectTemplate
 ) {
+  if (Date.now() - lastClickTime < 400) {
+    projectsTransitionClass = "";
+  }
+
   if (side === "right") {
-    if (projectsData.currentSlide + 1 > projectsData.list.length - 1) {
-    } else {
-      const nextSlideProject = projectsData.list[projectsData.currentSlide + 1];
+    projectsData.currentSlide += 1;
 
-      projectsWrapper.innerHTML =
-        projectsWrapper.innerHTML +
-        getProjectTemplate(
-          nextSlideProject.src,
-          nextSlideProject.name,
-          nextSlideProject.projectHref
-        );
+    projectsWrapper.classList.add(projectsTransitionClass);
 
-      projectsElems = Array.from(
-        document.getElementsByClassName("user-project")
-      );
+    projectsWrapper.style.transform = `translateX(-${
+      projectsData.currentSlide * PROJECT_ELEM_WIDTH
+    }px)`;
 
-      // setTimeout help
-      setTimeout(() => {
-        for (let i = 0; i < projectsElems.length; ++i) {
-          const project = projectsElems[i];
+    projectsWrapper.addEventListener("transitionend", (e) => {
+      projectsWrapper.classList.remove(projectsTransitionClass);
 
-          project.style.transform = `translateX(-514px)`;
-        }
-      });
+      if (projectsData.currentSlide > projectsData.list.length) {
+        projectsData.currentSlide = 1;
 
-      projectsData.currentSlide += 1;
-    }
+        projectsWrapper.style.transform = `translateX(-${
+          projectsData.currentSlide * PROJECT_ELEM_WIDTH
+        }px)`;
+      }
+    });
   } else if (side === "left") {
-    projectsData.position.x -= PROJECT_ELEM_WIDTH;
-
-    projectsWrapper.style.transform = `translateX(-${projectsData.position.x}px)`;
   } else {
     return;
   }
+
+  lastClickTime = Date.now();
 }

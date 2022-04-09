@@ -1,20 +1,35 @@
 import handleProjectsBtns from "../js/functions/handleProjectBtns.js";
 import projectsData from "./data/projectsData.js";
 
-import getProjectTemplate from "./templates/projectTemplate.js";
+import getProjectTemplate from "./templates/getProjectTemplate.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   const projectsWrapper = document.getElementById("projects");
   const projectsLeftBtn = document.getElementById("projectsLeftBtn");
   const projectsRightBtn = document.getElementById("projectsRightBtn");
 
-  projectsWrapper.innerHTML = getProjectTemplate(
-    projectsData.list[0].src,
-    projectsData.list[0].name,
-    projectsData.list[0].projectHref
-  );
+  for (const project of projectsData.list) {
+    projectsWrapper.innerHTML =
+      projectsWrapper.innerHTML +
+      getProjectTemplate(project.src, project.name, project.projectHref);
+  }
 
-  const projectsElems = Array.from(
+  projectsWrapper.innerHTML =
+    getProjectTemplate(
+      projectsData.list[projectsData.list.length - 1].src,
+      projectsData.list[projectsData.list.length - 1].name,
+      projectsData.list[projectsData.list.length - 1].projectHref
+    ) +
+    projectsWrapper.innerHTML +
+    getProjectTemplate(
+      projectsData.list[0].src,
+      projectsData.list[0].name,
+      projectsData.list[0].projectHref
+    );
+
+  projectsWrapper.style.transform = "translateX(-514px)";
+
+  projectsData.elems = Array.from(
     document.getElementsByClassName("user-project")
   );
 
@@ -25,7 +40,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       "left",
       projectsWrapper,
       projectsData,
-      projectsElems,
       getProjectTemplate
     )
   );
@@ -36,7 +50,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       "right",
       projectsWrapper,
       projectsData,
-      projectsElems,
       getProjectTemplate
     )
   );

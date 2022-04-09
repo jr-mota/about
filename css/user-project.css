@@ -11,8 +11,6 @@
   display: inline-flex;
 
   border-radius: 15px;
-
-  transition: transform ease-in 0.4s;
 }
 
 .user-project__img-wrapper {
