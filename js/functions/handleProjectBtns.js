@@ -1,6 +1,5 @@
 const PROJECT_ELEM_WIDTH = 514; // PX
-const lastClickTime = Date.now();
-let projectsTransitionClass = "user-projects__slide-inner_transition";
+let lastClickTime = Date.now();
 
 export default function handleProjectsBtns(
   side,
@@ -9,33 +8,53 @@ export default function handleProjectsBtns(
   getProjectTemplate
 ) {
   if (Date.now() - lastClickTime < 400) {
-    projectsTransitionClass = "";
-  }
-
-  if (side === "right") {
-    projectsData.currentSlide += 1;
-
-    projectsWrapper.classList.add(projectsTransitionClass);
-
-    projectsWrapper.style.transform = `translateX(-${
-      projectsData.currentSlide * PROJECT_ELEM_WIDTH
-    }px)`;
-
-    projectsWrapper.addEventListener("transitionend", (e) => {
-      projectsWrapper.classList.remove(projectsTransitionClass);
-
-      if (projectsData.currentSlide > projectsData.list.length) {
-        projectsData.currentSlide = 1;
-
-        projectsWrapper.style.transform = `translateX(-${
-          projectsData.currentSlide * PROJECT_ELEM_WIDTH
-        }px)`;
-      }
-    });
-  } else if (side === "left") {
-  } else {
     return;
   }
+
+  switch (side) {
+    case "right":
+      projectsData.currentSlide++;
+
+      projectsWrapper.addEventListener("transitionend", (e) => {
+        projectsWrapper.classList.remove(
+          "user-projects__slide-inner_transition"
+        );
+
+        if (projectsData.currentSlide > projectsData.list.length) {
+          projectsData.currentSlide = 1;
+
+          projectsWrapper.style.transform = `translateX(-${
+            projectsData.currentSlide * PROJECT_ELEM_WIDTH
+          }px)`;
+        }
+      });
+      break;
+    case "left":
+      projectsData.currentSlide--;
+
+      projectsWrapper.addEventListener("transitionend", (e) => {
+        projectsWrapper.classList.remove(
+          "user-projects__slide-inner_transition"
+        );
+
+        if (projectsData.currentSlide < 1) {
+          projectsData.currentSlide = projectsData.list.length;
+
+          projectsWrapper.style.transform = `translateX(-${
+            projectsData.currentSlide * PROJECT_ELEM_WIDTH
+          }px)`;
+        }
+      });
+      break;
+    default:
+      return;
+  }
+
+  projectsWrapper.classList.add("user-projects__slide-inner_transition");
+
+  projectsWrapper.style.transform = `translateX(-${
+    projectsData.currentSlide * PROJECT_ELEM_WIDTH
+  }px)`;
 
   lastClickTime = Date.now();
 }
