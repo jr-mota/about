@@ -1,0 +1,19 @@
+.user-skills {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  margin-top: 60px;
+}
+
+.user-skills__title {
+  text-align: center;
+
+  color: var(--color-4);
+}
+
+.user-skills__list {
+  margin-top: 40px;
+
+  display: flex;
+  justify-content: center;
+}

@@ -6,6 +6,7 @@ export default function getProjectTemplate(src, name, projectHref) {
           <img
             class="user-project__img"
             src="${src}"
+            alt="${name}"
           />
         </div>
       </div>
@@ -14,6 +15,7 @@ export default function getProjectTemplate(src, name, projectHref) {
         <a
           class="button-href"
           href="${projectHref}"
+          target="_blank"
         >
           <div class="button-href__text">
             Open
