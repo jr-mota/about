@@ -37,6 +37,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
   projectsBar.style.width = 100 + "%";
 
   projectsBar.addEventListener("transitionend", (e) => {
+    handleProjectsBtns(
+      "right",
+      projectsWrapper,
+      projectsData,
+      getProjectTemplate
+    );
+
     projectsBar.classList.remove("user-projects__bar-inner_transition");
 
     projectsBar.style.width = 0 + "%";
