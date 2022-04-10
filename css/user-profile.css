@@ -37,6 +37,8 @@
 .user-profile__name {
   text-align: center;
 
+  color: var(--color-4);
+
   margin-top: 40px;
 
   font-size: 28px;
@@ -47,6 +49,8 @@
 
 .user-profile__subtext {
   text-align: center;
+
+  color: var(--color-4);
 
   font-size: 14px;
 
@@ -116,6 +120,8 @@
 
 .user-profile__stat-item {
   width: 100px;
+
+  color: var(--color-4);
 
   margin-left: 10px;
   margin-right: 10px;

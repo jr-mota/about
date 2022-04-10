@@ -12,10 +12,12 @@ export default function getProjectTemplate(src, name, projectHref) {
       <div class="user-project__content">
         <h4 class="user-project__name">${name}</h4>
         <a
-          class="user-project__href"
+          class="button-href"
           href="${projectHref}"
         >
-          Open
+          <div class="button-href__text">
+            Open
+          </div>
         </a>
       </div>
     </article>

@@ -1,0 +1,53 @@
+.button-href {
+  font-weight: 600;
+
+  transition: background-color linear 0.3s, color linear 0.3s;
+
+  width: 100px;
+  height: 30px;
+
+  color: var(--color-4);
+
+  border-bottom: 2px solid var(--color-3);
+
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.button-href::before {
+  content: "";
+
+  display: block;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  z-index: 1;
+
+  background-color: var(--color-3);
+
+  width: 100%;
+  height: 0%;
+
+  transition: height 0.3s;
+}
+
+.button-href:hover::before {
+  height: 100%;
+}
+
+.button-href:hover {
+  color: var(--color-1);
+}
+
+.button-href__text {
+  position: relative;
+
+  z-index: 2;
+}

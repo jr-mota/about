@@ -1,4 +1,5 @@
 @import url("./user-profile.css");
+@import url("./button-href.css");
 @import url("./user-projects.css");
 @import url("./user-project.css");
 
@@ -24,8 +25,6 @@
   box-sizing: border-box;
 
   font-family: "Gilroy", sans-serif, Arial;
-
-  color: var(--color-4);
 }
 
 body,
@@ -67,6 +66,8 @@ html {
   justify-content: flex-end;
 
   opacity: 0.9;
+
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.2);
 }
 
 .background-style__circle {
