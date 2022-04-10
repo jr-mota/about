@@ -1,4 +1,5 @@
 const PROJECT_ELEM_WIDTH = 514; // PX
+const CLICK_INTERVAL = 450;
 let lastClickTime = Date.now();
 
 export default function handleProjectsBtns(
@@ -7,7 +8,7 @@ export default function handleProjectsBtns(
   projectsData,
   getProjectTemplate
 ) {
-  if (Date.now() - lastClickTime < 400) {
+  if (Date.now() - lastClickTime < CLICK_INTERVAL) {
     return;
   }
 

@@ -1,4 +1,5 @@
 import handleProjectsBtns from "../js/functions/handleProjectBtns.js";
+import initBarMove from "./functions/initBarMove.js";
 import projectsData from "./data/projectsData.js";
 
 import getProjectTemplate from "./templates/getProjectTemplate.js";
@@ -37,42 +38,30 @@ document.addEventListener("DOMContentLoaded", (e) => {
   projectsBar.style.width = 100 + "%";
 
   projectsBar.addEventListener("transitionend", (e) => {
+    initBarMove(projectsBar);
+
     handleProjectsBtns(
       "right",
       projectsWrapper,
       projectsData,
       getProjectTemplate
     );
-
-    projectsBar.classList.remove("user-projects__bar-inner_transition");
-
-    projectsBar.style.width = 0 + "%";
-
-    setTimeout(() => {
-      projectsBar.classList.add("user-projects__bar-inner_transition");
-
-      projectsBar.style.width = 100 + "%";
-    });
   });
 
-  projectsLeftBtn.addEventListener(
-    "click",
-    handleProjectsBtns.bind(
-      this,
+  projectsLeftBtn.addEventListener("click", (e) => {
+    handleProjectsBtns(
       "left",
       projectsWrapper,
       projectsData,
       getProjectTemplate
-    )
-  );
-  projectsRightBtn.addEventListener(
-    "click",
-    handleProjectsBtns.bind(
-      this,
+    );
+  });
+  projectsRightBtn.addEventListener("click", (e) => {
+    handleProjectsBtns(
       "right",
       projectsWrapper,
       projectsData,
       getProjectTemplate
-    )
-  );
+    );
+  });
 });

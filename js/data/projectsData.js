@@ -17,5 +17,10 @@ export default {
       src: "./assets/posts/Atom.png",
       projectHref: "https://github.com/jr-mota/vue-electron-app",
     },
+    {
+      name: "Light Pay",
+      src: "./assets/posts/Light Pay.png",
+      projectHref: "https://github.com/jr-mota/white-pay",
+    },
   ],
 };
