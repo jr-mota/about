@@ -25,7 +25,11 @@
 .user-projects__btn svg path {
   opacity: 0.6;
 
-  fill: var(--color-8);
+  fill: var(--color-2);
+}
+
+.user-projects__btn:hover .user-projects__btn svg path {
+  opacity: 1;
 }
 
 .user-projects__slide {

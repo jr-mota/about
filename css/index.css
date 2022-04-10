@@ -3,14 +3,11 @@
 @import url("./user-project.css");
 
 :root {
-  --color-1: #303952;
-  --color-2: #596275;
-  --color-3: #574b90;
-  --color-4: #574b90;
-  --color-5: #e15f41;
-  --color-6: #e77f67;
-  --color-7: #ff8500;
-  --color-8: #e8e8e8;
+  --color-1: #000;
+  --color-2: #fd76cb;
+  --color-3: #ffac30;
+  --color-4: #fffefd;
+  --color-5: #ff00a2;
 }
 
 @font-face {
@@ -28,14 +25,14 @@
 
   font-family: "Gilroy", sans-serif, Arial;
 
-  color: var(--color-8);
+  color: var(--color-4);
 }
 
 body,
 html {
   height: 100%;
 
-  background-color: #303952;
+  background-color: var(--color-1);
 }
 
 .wrapper {
@@ -49,4 +46,53 @@ html {
   justify-content: center;
 
   padding: 40px;
+}
+
+.body-inner {
+  position: relative;
+}
+
+.background-style {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  filter: blur(40px);
+
+  display: flex;
+  justify-content: flex-end;
+
+  opacity: 0.9;
+}
+
+.background-style__circle {
+  width: 200px;
+  height: 200px;
+
+  border-radius: 100%;
+}
+
+.background-style__circle-1 {
+  width: 120px;
+  height: 120px;
+
+  margin-top: 130px;
+  margin-right: 350px;
+
+  background-color: var(--color-3);
+}
+
+.background-style__circle-2 {
+  margin-top: 200px;
+  margin-left: 260px;
+
+  background-color: var(--color-2);
+}
+
+.page {
+  position: relative;
 }
