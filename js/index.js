@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const projectsWrapper = document.getElementById("projects");
   const projectsLeftBtn = document.getElementById("projectsLeftBtn");
   const projectsRightBtn = document.getElementById("projectsRightBtn");
+  const projectsBar = document.getElementById("projectsBar");
 
   for (const project of projectsData.list) {
     projectsWrapper.innerHTML =
@@ -32,6 +33,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
   projectsData.elems = Array.from(
     document.getElementsByClassName("user-project")
   );
+
+  projectsBar.style.width = 100 + "%";
+
+  projectsBar.addEventListener("transitionend", (e) => {
+    projectsBar.classList.remove("user-projects__bar-inner_transition");
+
+    projectsBar.style.width = 0 + "%";
+
+    setTimeout(() => {
+      projectsBar.classList.add("user-projects__bar-inner_transition");
+
+      projectsBar.style.width = 100 + "%";
+    });
+  });
 
   projectsLeftBtn.addEventListener(
     "click",
