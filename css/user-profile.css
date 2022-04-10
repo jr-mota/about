@@ -17,6 +17,18 @@
   transition: transform linear 0.3s;
 
   cursor: pointer;
+
+  position: relative;
+}
+
+.user-profile__emoji {
+  position: absolute;
+
+  width: 35px;
+  height: 35px;
+
+  top: 100px;
+  right: 0;
 }
 
 .user-profile__logo-wrapper:hover {
