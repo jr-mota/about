@@ -5,6 +5,16 @@
   cursor: pointer;
 
   position: relative;
+
+  transition: transform 0.5s;
+}
+
+.hexagon:hover {
+  transform: scale(1.2);
+}
+
+.hexagon:hover polygon {
+  fill: none;
 }
 
 .hexagon__background {
@@ -21,7 +31,7 @@
 }
 
 .hexagon polygon {
-  opacity: 0.4;
+  opacity: 0.2;
 
   fill: var(--color-3);
 }
