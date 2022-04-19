@@ -3,7 +3,6 @@
 @import url("./user-projects.css");
 @import url("./user-project.css");
 @import url("./user-skills.css");
-@import url("./hexagon.css");
 
 :root {
   --color-1: #000;
@@ -11,13 +10,19 @@
   --color-3: #ffac30;
   --color-4: #fffefd;
   --color-5: #ff00a2;
+  --color-6: #212121;
 }
 
 @font-face {
   font-family: "Gilroy";
-  src: url("../assets/fonts/Gilroy-Regular.ttf") format("ttf"),
+  src: url("../assets/fonts/Gilroy-Regular.ttf") format("truetype"),
     url("../assets/fonts/Gilroy-Regular.woff") format("woff")
       url("../assets/fonts/Gilroy-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Graduate";
+  src: url("../assets/fonts/Graduate-Regular.ttf") format("truetype");
 }
 
 * {
@@ -78,10 +83,6 @@ html {
   justify-content: flex-end;
 
   opacity: 0.9;
-
-  -webkit-box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.2);
 }
 
 .background-style__circle {

@@ -12,11 +12,15 @@ export default function handleProjectsBtns(
     return;
   }
 
+  let deltaForTransitionEnd = Date.now();
+
   switch (side) {
     case "right":
       projectsData.currentSlide++;
 
       projectsWrapper.addEventListener("transitionend", (e) => {
+        if (Date.now() - deltaForTransitionEnd < 400) return;
+
         projectsWrapper.classList.remove(
           "user-projects__slide-inner_transition"
         );
@@ -34,6 +38,8 @@ export default function handleProjectsBtns(
       projectsData.currentSlide--;
 
       projectsWrapper.addEventListener("transitionend", (e) => {
+        if (Date.now() - deltaForTransitionEnd < 400) return;
+
         projectsWrapper.classList.remove(
           "user-projects__slide-inner_transition"
         );

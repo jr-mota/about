@@ -60,7 +60,7 @@
   max-width: 280px;
   height: 2px;
 
-  background-color: #212121;
+  background-color: var(--color-6);
 
   display: flex;
   justify-content: center;

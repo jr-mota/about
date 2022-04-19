@@ -3,18 +3,61 @@
   padding-right: 40px;
   padding-bottom: 40px;
   margin-top: 60px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .user-skills__title {
+  font-weight: 300;
+
   text-align: center;
+
+  letter-spacing: 3px;
 
   color: var(--color-4);
 }
 
 .user-skills__list {
-  margin-top: 40px;
+  width: 70%;
+
+  margin-top: 20px;
+}
+
+.user-skill {
+  width: 100%;
+  height: 30px;
+
+  color: var(--color-4);
+
+  margin-top: 10px;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+
+.user-skill:first-child {
+  margin-top: 0px;
+}
+
+.user-skill__top {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.user-skill__bar {
+  width: 100%;
+  height: 3px;
+
+  background-color: var(--color-6);
+}
+
+.user-skill__bar-inner {
+  width: 50%;
+  height: 3px;
+
+  background: linear-gradient(90deg, var(--color-2), var(--color-3));
+
+  box-shadow: 0px 0px 18px var(--color-4);
 }

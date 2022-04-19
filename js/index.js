@@ -1,14 +1,17 @@
 import handleProjectsBtns from "../js/functions/handleProjectBtns.js";
 import initBarMove from "./functions/initBarMove.js";
 import projectsData from "./data/projectsData.js";
+import skillsData from "./data/skillsData.js";
 
 import getProjectTemplate from "./templates/getProjectTemplate.js";
+import getSkillTemplate from "./templates/getSkillTemplate.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   const projectsWrapper = document.getElementById("projects");
   const projectsLeftBtn = document.getElementById("projectsLeftBtn");
   const projectsRightBtn = document.getElementById("projectsRightBtn");
   const projectsBar = document.getElementById("projectsBar");
+  const skillsWrapper = document.getElementById("skills");
 
   for (const project of projectsData.list) {
     projectsWrapper.innerHTML =
@@ -64,4 +67,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
       getProjectTemplate
     );
   });
+
+  for (let i = 1; i < skillsData.list.length; ++i) {
+    const curr = skillsData.list[i];
+    let j = i;
+
+    while (j > 0 && skillsData.list[j - 1].points < curr.points) {
+      skillsData.list[j] = skillsData.list[j - 1];
+
+      j--;
+    }
+
+    skillsData.list[j] = curr;
+  }
+
+  for (const skill of skillsData.list) {
+    skillsWrapper.innerHTML =
+      skillsWrapper.innerHTML + getSkillTemplate(skill.name, skill.points);
+  }
 });
