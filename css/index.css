@@ -20,11 +20,6 @@
       url("../assets/fonts/Gilroy-Regular.woff2") format("woff2");
 }
 
-@font-face {
-  font-family: "Graduate";
-  src: url("../assets/fonts/Graduate-Regular.ttf") format("truetype");
-}
-
 * {
   margin: 0;
   padding: 0;

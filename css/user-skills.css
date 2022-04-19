@@ -11,16 +11,16 @@
 
 .user-skills__title {
   font-weight: 300;
+  font-size: 25px;
 
   text-align: center;
-
   letter-spacing: 3px;
 
   color: var(--color-4);
 }
 
 .user-skills__list {
-  width: 70%;
+  width: 100%;
 
   margin-top: 20px;
 }
@@ -31,10 +31,12 @@
 
   color: var(--color-4);
 
-  margin-top: 10px;
+  margin-top: 14px;
 
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
 
 .user-skill:first-child {
@@ -42,22 +44,42 @@
 }
 
 .user-skill__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-skill__name {
   font-weight: 600;
   font-size: 16px;
+
+  letter-spacing: 1px;
+
+  position: relative;
+  right: 14px;
+}
+
+.user-skill__points {
+  font-weight: 600;
+
+  opacity: 0.3;
+
+  margin-bottom: 3px;
 }
 
 .user-skill__bar {
   width: 100%;
-  height: 3px;
+  height: 5px;
 
-  background-color: var(--color-6);
+  background: linear-gradient(90deg, var(--color-1) 30%, var(--color-6) 100%);
 }
 
 .user-skill__bar-inner {
   width: 50%;
-  height: 3px;
+  height: 5px;
 
   background: linear-gradient(90deg, var(--color-2), var(--color-3));
 
   box-shadow: 0px 0px 18px var(--color-4);
+
+  transition: width 2s;
 }

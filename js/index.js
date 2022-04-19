@@ -85,4 +85,16 @@ document.addEventListener("DOMContentLoaded", (e) => {
     skillsWrapper.innerHTML =
       skillsWrapper.innerHTML + getSkillTemplate(skill.name, skill.points);
   }
+
+  setTimeout(() => {
+    const skillElems = Array.from(
+      document.getElementsByClassName("user-skill__bar-inner")
+    );
+
+    for (let i = 0; i < skillElems.length; ++i) {
+      const skillElem = skillElems[i];
+
+      skillElem.style.width = skillsData.list[i].points * 10 + "%";
+    }
+  }, 100);
 });

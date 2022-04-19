@@ -1,6 +1,6 @@
 export default {
   list: [
-    { name: "JavaScript", points: 7 },
+    { name: "JavaScript", points: 10 },
     { name: "TypeScript", points: 3 },
     { name: "PHP", points: 5 },
     { name: "Vue", points: 6 },
