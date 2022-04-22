@@ -46,6 +46,8 @@ html {
 
 .main {
   padding-top: 40px;
+
+  position: relative;
 }
 
 .body-inner {
@@ -104,8 +106,4 @@ html {
   margin-left: 260px;
 
   background-color: var(--color-2);
-}
-
-.page {
-  position: relative;
 }

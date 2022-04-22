@@ -32,23 +32,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
       projectsData.list[0].projectHref
     );
 
-  projectsWrapper.style.transform = "translateX(-514px)";
-
   projectsData.elems = Array.from(
     document.getElementsByClassName("user-project")
   );
+
+  projectsWrapper.style.transform = `translateX(-${projectsData.elems[0].offsetWidth}px)`;
 
   projectsBar.style.width = 100 + "%";
 
   projectsBar.addEventListener("transitionend", (e) => {
     initBarMove(projectsBar);
 
-    handleProjectsBtns(
-      "right",
-      projectsWrapper,
-      projectsData,
-      getProjectTemplate
-    );
+    handleProjectsBtns("right", projectsWrapper, projectsData);
   });
 
   projectsLeftBtn.addEventListener("click", (e) => {
@@ -68,24 +63,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
     );
   });
 
-  for (let i = 1; i < skillsData.list.length; ++i) {
-    const curr = skillsData.list[i];
-    let j = i;
-
-    while (j > 0 && skillsData.list[j - 1].points < curr.points) {
-      skillsData.list[j] = skillsData.list[j - 1];
-
-      j--;
+  const sortedSkills = skillsData.list.sort((prev, next) => {
+    if (prev.points > next.points) {
+      return -1;
+    } else {
+      return 1;
     }
+  });
 
-    skillsData.list[j] = curr;
-  }
-
-  for (const skill of skillsData.list) {
+  for (const skill of sortedSkills) {
     skillsWrapper.innerHTML =
       skillsWrapper.innerHTML + getSkillTemplate(skill.name, skill.points);
   }
 
+  // Start animation of skills after 100 ms
   setTimeout(() => {
     const skillElems = Array.from(
       document.getElementsByClassName("user-skill__bar-inner")
@@ -94,7 +85,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
     for (let i = 0; i < skillElems.length; ++i) {
       const skillElem = skillElems[i];
 
-      skillElem.style.width = skillsData.list[i].points * 10 + "%";
+      skillElem.style.width = sortedSkills[i].points * 10 + "%";
     }
   }, 100);
+
+  // Handle resize for format projects
+  window.addEventListener("resize", (e) => {
+    const widthOfProject = projectsData.elems[0].offsetWidth;
+    const currentSlide = projectsData.currentSlide;
+
+    projectsWrapper.style.transform = `translateX(-${
+      currentSlide * widthOfProject
+    }px)`;
+  });
 });

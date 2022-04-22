@@ -34,7 +34,8 @@
 }
 
 .user-projects__slide {
-  min-width: 514px;
+  width: 100%;
+  max-width: 514px;
   height: 220px;
 
   display: flex;
@@ -77,4 +78,27 @@
 
 .user-projects__bar-inner_transition {
   transition: width linear 7s;
+}
+
+@media screen and (max-width: 600px) {
+  .user-projects__btn {
+    width: 25px;
+    height: 100%;
+  }
+
+  .user-projects__slide {
+    width: 100%;
+
+    max-width: calc(100vw - 62px);
+  }
+
+  .user-projects__slide-inner {
+    width: 100%;
+
+    max-width: calc(100vw - 62px);
+  }
+
+  .user-projects__bar {
+    width: 55%;
+  }
 }

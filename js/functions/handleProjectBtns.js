@@ -1,12 +1,10 @@
-const PROJECT_ELEM_WIDTH = 514; // PX
 const CLICK_INTERVAL = 450;
 let lastClickTime = Date.now();
 
 export default function handleProjectsBtns(
   side,
   projectsWrapper,
-  projectsData,
-  getProjectTemplate
+  projectsData
 ) {
   if (Date.now() - lastClickTime < CLICK_INTERVAL) {
     return;
@@ -29,7 +27,7 @@ export default function handleProjectsBtns(
           projectsData.currentSlide = 1;
 
           projectsWrapper.style.transform = `translateX(-${
-            projectsData.currentSlide * PROJECT_ELEM_WIDTH
+            projectsData.currentSlide * projectsData.elems[0].offsetWidth
           }px)`;
         }
       });
@@ -48,7 +46,7 @@ export default function handleProjectsBtns(
           projectsData.currentSlide = projectsData.list.length;
 
           projectsWrapper.style.transform = `translateX(-${
-            projectsData.currentSlide * PROJECT_ELEM_WIDTH
+            projectsData.currentSlide * projectsData.elems[0].offsetWidth
           }px)`;
         }
       });
@@ -60,7 +58,7 @@ export default function handleProjectsBtns(
   projectsWrapper.classList.add("user-projects__slide-inner_transition");
 
   projectsWrapper.style.transform = `translateX(-${
-    projectsData.currentSlide * PROJECT_ELEM_WIDTH
+    projectsData.currentSlide * projectsData.elems[0].offsetWidth
   }px)`;
 
   lastClickTime = Date.now();

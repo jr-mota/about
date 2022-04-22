@@ -75,3 +75,49 @@
 
   text-overflow: ellipsis;
 }
+
+@media screen and (max-width: 600px) {
+  .user-project {
+    min-width: 0px;
+
+    min-width: calc(100vw - 62px);
+  }
+
+  .user-project__img-wrapper {
+    border-radius: 15px 0px 0px 15px;
+  }
+
+  .user-project__img-rotate {
+    width: 100%;
+    height: 400px;
+
+    border: 0px;
+
+    transition: border 0.3s, transform 0.3s;
+
+    transform: rotate(0) translateX(0px) translateY(0px);
+
+    overflow: visible;
+  }
+
+  .user-project__img-rotate:hover {
+    border: 0px;
+
+    transform: rotate(0) translateX(0px) translateY(0px);
+  }
+
+  .user-project__img {
+    width: 210px;
+    height: 200px;
+
+    transform: rotate(0deg);
+  }
+
+  .user-project__content {
+    padding: 20px 20px 20px 20px;
+  }
+
+  .user-project__name {
+    font-size: 18px;
+  }
+}
