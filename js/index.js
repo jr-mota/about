@@ -13,12 +13,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const projectsBar = document.getElementById("projectsBar");
   const skillsWrapper = document.getElementById("skills");
 
+  // Place projects cards
   for (const project of projectsData.list) {
     projectsWrapper.innerHTML =
       projectsWrapper.innerHTML +
       getProjectTemplate(project.src, project.name, project.projectHref);
   }
 
+  // Place projects card before and after for infinite scroll
   projectsWrapper.innerHTML =
     getProjectTemplate(
       projectsData.list[projectsData.list.length - 1].src,
@@ -32,20 +34,23 @@ document.addEventListener("DOMContentLoaded", (e) => {
       projectsData.list[0].projectHref
     );
 
+  // Store projects elems
   projectsData.elems = Array.from(
     document.getElementsByClassName("user-project")
   );
 
+  // Translate to first slide
   projectsWrapper.style.transform = `translateX(-${projectsData.elems[0].offsetWidth}px)`;
 
+  // Init slide show
   projectsBar.style.width = 100 + "%";
-
   projectsBar.addEventListener("transitionend", (e) => {
     initBarMove(projectsBar);
 
     handleProjectsBtns("right", projectsWrapper, projectsData);
   });
 
+  // Handle left right btns
   projectsLeftBtn.addEventListener("click", (e) => {
     handleProjectsBtns(
       "left",
@@ -71,6 +76,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   });
 
+  // Place skills elems
   for (let i = 0; i < sortedSkills.length; ++i) {
     const skill = sortedSkills[i];
 
@@ -82,6 +88,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     document.getElementsByClassName("user-skill__bar-inner")
   );
 
+  // Init animations for skills
   const observer = new IntersectionObserver((entries) => {
     const elem = entries[0].target;
     const indexOfElem = Number(elem.dataset.index);

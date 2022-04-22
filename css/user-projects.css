@@ -5,8 +5,20 @@
 }
 
 .user-projects__top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -20,6 +32,9 @@
 
   cursor: pointer;
 
+  -webkit-transition: opacity linear 0.3s;
+  -o-transition: opacity linear 0.3s;
+  -moz-transition: opacity linear 0.3s;
   transition: opacity linear 0.3s;
 }
 
@@ -38,7 +53,15 @@
   max-width: 514px;
   height: 220px;
 
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   overflow-x: hidden;
@@ -48,12 +71,26 @@
   width: 514px;
   height: 220px;
 
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .user-projects__slide-inner_transition {
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  -o-transition: -o-transform 0.4s;
+  -moz-transition: transform 0.4s, -moz-transform 0.4s;
   transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s, -moz-transform 0.4s,
+    -o-transform 0.4s;
 }
 
 .user-projects__bar {
@@ -63,7 +100,15 @@
 
   background-color: var(--color-6);
 
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   margin: 10px auto;
@@ -77,6 +122,9 @@
 }
 
 .user-projects__bar-inner_transition {
+  -webkit-transition: width linear 7s;
+  -o-transition: width linear 7s;
+  -moz-transition: width linear 7s;
   transition: width linear 7s;
 }
 
@@ -89,12 +137,16 @@
   .user-projects__slide {
     width: 100%;
 
+    max-width: -webkit-calc(100vw - 62px);
+    max-width: -moz-calc(100vw - 62px);
     max-width: calc(100vw - 62px);
   }
 
   .user-projects__slide-inner {
     width: 100%;
 
+    max-width: -webkit-calc(100vw - 62px);
+    max-width: -moz-calc(100vw - 62px);
     max-width: calc(100vw - 62px);
   }
 
