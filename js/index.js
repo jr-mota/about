@@ -71,23 +71,38 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   });
 
-  for (const skill of sortedSkills) {
+  for (let i = 0; i < sortedSkills.length; ++i) {
+    const skill = sortedSkills[i];
+
     skillsWrapper.innerHTML =
-      skillsWrapper.innerHTML + getSkillTemplate(skill.name, skill.points);
+      skillsWrapper.innerHTML + getSkillTemplate(skill.name, skill.points, i);
   }
 
-  // Start animation of skills after 100 ms
-  setTimeout(() => {
-    const skillElems = Array.from(
-      document.getElementsByClassName("user-skill__bar-inner")
-    );
+  const skillElems = Array.from(
+    document.getElementsByClassName("user-skill__bar-inner")
+  );
 
-    for (let i = 0; i < skillElems.length; ++i) {
-      const skillElem = skillElems[i];
+  const observer = new IntersectionObserver((entries) => {
+    const elem = entries[0].target;
+    const indexOfElem = Number(elem.dataset.index);
 
-      skillElem.style.width = sortedSkills[i].points * 10 + "%";
+    if (elem.style.width === "0%") {
+      elem.style.width = sortedSkills[indexOfElem].points * 10 + "%";
     }
-  }, 100);
+  });
+
+  for (const skillElem of skillElems) {
+    if (
+      window.scrollY + window.innerHeight >
+      skillElem.getBoundingClientRect().top + window.scrollY
+    ) {
+      const indexOfElem = Number(skillElem.dataset.index);
+
+      skillElem.style.width = sortedSkills[indexOfElem].points * 10 + "%";
+    }
+
+    observer.observe(skillElem);
+  }
 
   // Handle resize for format projects
   window.addEventListener("resize", (e) => {

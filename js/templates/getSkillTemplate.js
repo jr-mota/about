@@ -1,4 +1,4 @@
-export default function getSkillTemplate(name, points) {
+export default function getSkillTemplate(name, points, index) {
   return `
   <article class="user-skill">
     <div class="user-skill__top">
@@ -13,7 +13,7 @@ export default function getSkillTemplate(name, points) {
     </div>
     <div class="user-skill__bottom">
       <div class="user-skill__bar">
-        <div class="user-skill__bar-inner" style="width: 0%"></div>
+        <div class="user-skill__bar-inner" style="width: 0%" data-index="${index}"></div>
       </div>
     </div>
   </article>
