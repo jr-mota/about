@@ -19,6 +19,8 @@ export default function handleProjectsBtns(
       projectsWrapper.addEventListener("transitionend", (e) => {
         if (Date.now() - deltaForTransitionEnd < 400) return;
 
+        if (!e.target.classList.contains("user-projects__slide-inner")) return;
+
         projectsWrapper.classList.remove(
           "user-projects__slide-inner_transition"
         );
@@ -37,6 +39,8 @@ export default function handleProjectsBtns(
 
       projectsWrapper.addEventListener("transitionend", (e) => {
         if (Date.now() - deltaForTransitionEnd < 400) return;
+
+        if (!e.target.classList.contains("user-projects__slide-inner")) return;
 
         projectsWrapper.classList.remove(
           "user-projects__slide-inner_transition"
