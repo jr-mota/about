@@ -45,7 +45,7 @@
 
   color: var(--color-4);
 
-  margin-top: 14px;
+  margin-top: 8px;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -82,7 +82,7 @@
 
 .user-skill__name {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
 
   letter-spacing: 1px;
 
@@ -100,7 +100,7 @@
 
 .user-skill__bar {
   width: 100%;
-  height: 5px;
+  height: 3px;
 
   background: -webkit-gradient(
     linear,
@@ -125,7 +125,7 @@
 
 .user-skill__bar-inner {
   width: 50%;
-  height: 5px;
+  height: 3px;
 
   background: -webkit-gradient(
     linear,

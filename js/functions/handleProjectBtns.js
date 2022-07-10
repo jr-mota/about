@@ -1,4 +1,4 @@
-const CLICK_INTERVAL = 450;
+const CLICK_INTERVAL = 1000;
 let lastClickTime = Date.now();
 
 export default function handleProjectsBtns(
